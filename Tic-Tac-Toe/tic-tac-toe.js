@@ -1,9 +1,13 @@
-let player, winner = null;
+let player, winner, x, o = null;
 let selectedPlayer = document.getElementById('selected-player');
 let selectedWinner = document.getElementById('selected-winner');
+let countX = document.getElementById('count-x');
+let countO = document.getElementById('count-o');
 let squares = document.getElementsByName('square');
 
 changePlayer('X');
+pointsX(0);
+pointsO(0);
 
 function pickSquare(id) {
     if (winner !== null) {
@@ -32,6 +36,16 @@ function pickSquare(id) {
 function changePlayer(value) {
     player = value;
     selectedPlayer.innerHTML = player;
+}
+
+function pointsX(value) {
+    x = value;
+    countX.innerHTML = x;
+}
+
+function pointsO(value) {
+    o = value;
+    countO.innerHTML = o;
 }
 
 function checkWinner() {
@@ -117,6 +131,34 @@ function checkSequence(square1, square2, square3) {
     return isEqual;
 }
 
+let firstTime = true;
+
+function newGame() {
+    if (winner !== null && firstTime === false) {
+        if (winner === 'X') {
+            x++;
+        } else {
+            o++;
+        }
+    } else {
+        firstTime = false;
+    }
+
+    winner = null;
+    selectedWinner.innerHTML = '';
+
+    for (let i = 1; i <= 9; i++) {
+        let square = document.getElementById(i);
+        square.style.background = '#eee';
+        square.style.color = '#eee';
+        square.innerHTML = '-';
+    }
+
+    changePlayer(player);
+    pointsX(x);
+    pointsO(o);
+}
+
 function restart() {
     winner = null;
     selectedWinner.innerHTML = '';
@@ -128,5 +170,7 @@ function restart() {
         square.innerHTML = '-';
     }
 
-    changePlayer('X');
+    changePlayer(player);
+    pointsX(0);
+    pointsO(0);
 }

@@ -2,6 +2,10 @@ body {
     text-align: center;
 }
 
+h1 {
+    font-size: 40px;
+}
+
 .square {
     text-align: center;
     width: 50px;
@@ -15,13 +19,18 @@ body {
     color: #eee;
 }
 
-.player, .winner {
+.player, .winner, .points {
     font-size: 30px;
-    margin-top: 10px;
+    margin: 10px;
+}
+
+.x, .o {
+    padding: 20px;
+    color: #fa0000;
 }
 
 button {
-    margin-top: 10px;
+    margin: 20px;    
     width: 100px;
     height: 30px;
     background: #eee;

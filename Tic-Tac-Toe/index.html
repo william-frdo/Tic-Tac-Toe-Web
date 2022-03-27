@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <title>
         Tic-Tac-Toe
@@ -8,11 +7,30 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <h1>
         Tic-Tac-Toe
     </h1>
+
+    <div class="points">
+        <label>
+            Scores
+        </label>
+        <div></div>
+        <label class="x">
+            X:
+        </label>
+        <label id="count-x">
+
+        </label>
+
+        <label class="o">
+            O:
+        </label>
+        <label id="count-o">
+
+        </label>
+    </div>
 
     <div>
         <div id="1" class="square" onclick="pickSquare(this.id)">-</div>
@@ -34,7 +52,7 @@
 
     <div class="player">
         <label>
-            player:
+            Player:
         </label>
         <label id="selected-player">
 
@@ -43,7 +61,7 @@
 
     <div class="winner">
         <label>
-            winner:
+            Winner:
         </label>
         <label id="selected-winner">
 
@@ -51,11 +69,14 @@
     </div>
 
     <div>
+        <button onclick="newGame()">
+            New Game
+        </button>
+
         <button onclick="restart()">
             Restart
         </button>
     </div>
-
 </body>
 <script src="tic-tac-toe.js"></script>
 </html>
